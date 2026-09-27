@@ -6,6 +6,8 @@
 #include "d/dolzel_rel.h" // IWYU pragma: keep
 #include "d/actor/d_a_obj_kanoke.h"
 #include "d/d_cc_d.h"
+#include "m_Do/m_Do_mtx.h"
+#include "f_op/f_op_actor.h"
 
 static dCcD_SrcCps l_cps_src_body = {
     // dCcD_SrcGObjInf
@@ -77,11 +79,13 @@ daObjKanoke_c::daObjKanoke_c() {
 /* 00000644-00000664       .text CheckCreateHeap__FP10fopAc_ac_c */
 static BOOL CheckCreateHeap(fopAc_ac_c*) {
     /* Nonmatching */
+    return true;
 }
 
 /* 00000664-00000700       .text _create__13daObjKanoke_cFv */
 cPhs_State daObjKanoke_c::_create() {
     /* Nonmatching */
+    return cPhs_COMPLEATE_e;
 }
 
 /* 00000700-000008BC       .text createHeap__13daObjKanoke_cFv */
@@ -97,16 +101,33 @@ void daObjKanoke_c::createInit() {
 /* 00000B28-00000C0C       .text _delete__13daObjKanoke_cFv */
 BOOL daObjKanoke_c::_delete() {
     /* Nonmatching */
+    return true;
 }
 
 /* 00000C0C-00000CE0       .text _draw__13daObjKanoke_cFv */
 BOOL daObjKanoke_c::_draw() {
-    /* Nonmatching */
+    g_env_light.settingTevStruct(TEV_TYPE_BG0,&current.pos,&tevStr);
+    g_env_light.setLightTevColorType(this->field_0x298,&tevStr);
+    g_env_light.setLightTevColorType(this->field_0x29C,&tevStr);
+    j3dSys.mDrawBuffer[0] = g_dComIfG_gameInfo.drawlist.mpOpaListBG;
+    j3dSys.mDrawBuffer[1] = g_dComIfG_gameInfo.drawlist.mpXluListBG;
+    if ((this->field_0x88F & 1) == 0) {
+        mDoExt_modelUpdateDL(this->field_0x298);
+    }
+    if ((this->field_0x88F & 2) == 0) {
+        mDoExt_modelUpdateDL(this->field_0x29C);
+    }
+    j3dSys.mDrawBuffer[0] =
+        g_dComIfG_gameInfo.drawlist.mpOpaList;
+    j3dSys.mDrawBuffer[1] =
+       g_dComIfG_gameInfo.drawlist.mpXluList;
+    return true;
 }
 
 /* 00000CE0-00000E7C       .text _execute__13daObjKanoke_cFv */
 BOOL daObjKanoke_c::_execute() {
     /* Nonmatching */
+    return true;
 }
 
 /* 00000E7C-0000122C       .text executeNormal__13daObjKanoke_cFv */

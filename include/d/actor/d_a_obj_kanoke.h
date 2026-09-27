@@ -2,6 +2,9 @@
 #define D_A_OBJ_KANOKE_H
 
 #include "f_op/f_op_actor.h"
+#include "d/d_bg_w.h"
+#include "d/d_cc_d.h"
+#include "d/d_particle.h"
 
 class daObjKanoke_c : public fopAc_ac_c {
 public:
@@ -34,7 +37,7 @@ public:
     void setMtxHuta(cXyz*);
 
 public:
-        /* 0x290 */ request_of_phase_process_class field_0x290;
+    /* 0x290 */ request_of_phase_process_class field_0x290;
     /* 0x298 */ J3DModel* field_0x298;
     /* 0x29C */ J3DModel* field_0x29C;
     /* 0x2A0 */ dBgW* field_0x2A0;
@@ -60,9 +63,11 @@ public:
     /* 0x884 */ s16 field_0x884;
     /* 0x886 */ s16 field_0x886;
     /* 0x888 */ s16 field_0x888;
-    /* 0x88A */ bool field_0x88A;
-    /* 0x88B */ u8 field_0x88B[0x88D - 0x88B];
-    /* 0x88D */ s16 field_0x88D;
+    /* 0x88A */ u8 field_0x88A;
+    /* 0x88B */ u8 field_0x88B;
+    /* 0x88C */ u8 field_0x88C;
+    /* 0x88D */ u8 field_0x88D;
+    /* 0x88E */ u8 field_0x88E;
     /* 0x88F */ u8 field_0x88F;
 };  // Size: 0x890
 

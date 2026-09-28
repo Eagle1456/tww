@@ -240,8 +240,21 @@ void daObjKanoke_c::setMtxHontai() {
 }
 
 /* 00001D38-00001E4C       .text setMtxHuta__13daObjKanoke_cFP4cXyz */
-void daObjKanoke_c::setMtxHuta(cXyz*) {
-    /* Nonmatching */
+void daObjKanoke_c::setMtxHuta(cXyz* cXyz) {
+    struct cXyz local_18;
+  
+    mDoMtx_YrotS(mDoMtx_stack_c::now,(int) shape_angle.y);
+    mDoMtx_XrotM(mDoMtx_stack_c::now,(int) shape_angle.x);
+    PSMTXMultVec(mDoMtx_stack_c::now,&this->field_0x860,&local_18);
+    PSMTXTrans(mDoMtx_stack_c::now, cXyz->x + local_18.x,cXyz->y + local_18.y,cXyz->z + local_18.z);
+    mDoMtx_YrotM(mDoMtx_stack_c::now, (int) shape_angle.y);
+    mDoMtx_XrotM(mDoMtx_stack_c::now,(int) shape_angle.x);
+    mDoMtx_stack_c::transM((this->field_0x86C).x,(this->field_0x86C).y,(this->field_0x86C).z);
+    mDoMtx_XrotM(mDoMtx_stack_c::now,this->field_0x87C);
+    mDoMtx_YrotM(mDoMtx_stack_c::now,this->field_0x87E);
+    mDoMtx_ZrotM(mDoMtx_stack_c::now,this->field_0x880);
+    mDoMtx_stack_c::transM(-(this->field_0x86C).x,-(this->field_0x86C).y,-(this->field_0x86C).z);
+    return;
 }
 
 /* 00001E4C-00001E6C       .text daObjKanokeCreate__FPv */

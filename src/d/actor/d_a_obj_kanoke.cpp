@@ -6,6 +6,7 @@
 #include "d/dolzel_rel.h" // IWYU pragma: keep
 #include "d/actor/d_a_obj_kanoke.h"
 #include "d/d_cc_d.h"
+#include "d/d_a_obj.h"
 #include "f_op/f_op_actor.h"
 #include "d/d_com_inf_game.h"
 
@@ -187,8 +188,9 @@ void daObjKanoke_c::executeWait() {
 }
 
 /* 00001B28-00001B54       .text getPrmType__13daObjKanoke_cFv */
-void daObjKanoke_c::getPrmType() {
+u8 daObjKanoke_c::getPrmType() {
     /* Nonmatching */
+    return daObj::PrmAbstract<Prm_e>(this, PRM_TYPE_S, PRM_TYPE_W);
 }
 
 /* 00001B54-00001B80       .text getPrmSearch__13daObjKanoke_cFv */

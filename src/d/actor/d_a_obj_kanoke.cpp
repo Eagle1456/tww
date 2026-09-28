@@ -229,7 +229,14 @@ void daObjKanoke_c::setMtx() {
 
 /* 00001C9C-00001D38       .text setMtxHontai__13daObjKanoke_cFv */
 void daObjKanoke_c::setMtxHontai() {
-    /* Nonmatching */
+    PSMTXTrans(mDoMtx_stack_c::now,current.pos.x,current.pos.y,
+                  current.pos.z);
+    mDoMtx_YrotM(mDoMtx_stack_c::now,shape_angle.y);
+    mDoMtx_XrotM(mDoMtx_stack_c::now,shape_angle.x);
+    mDoMtx_stack_c::transM((this->field_0x86C).x,(this->field_0x86C).y,(this->field_0x86C).z);
+    mDoMtx_YrotM(mDoMtx_stack_c::now,this->field_0x87E);
+    mDoMtx_stack_c::transM(-(this->field_0x86C).x,-(this->field_0x86C).y,-(this->field_0x86C).z);
+    return;
 }
 
 /* 00001D38-00001E4C       .text setMtxHuta__13daObjKanoke_cFP4cXyz */

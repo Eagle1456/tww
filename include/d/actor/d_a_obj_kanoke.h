@@ -27,7 +27,7 @@ public:
     
     daObjKanoke_c();
     cPhs_State _create();
-    void createHeap();
+    int createHeap();
     cPhs_State createInit();
     BOOL _delete();
     BOOL _draw();

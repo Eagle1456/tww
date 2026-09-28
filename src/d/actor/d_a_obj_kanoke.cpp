@@ -105,8 +105,60 @@ cPhs_State daObjKanoke_c::_create() {
 }
 
 /* 00000700-000008BC       .text createHeap__13daObjKanoke_cFv */
-void daObjKanoke_c::createHeap() {
-    /* Nonmatching */
+int daObjKanoke_c::createHeap() {
+    J3DModelData *pJVar1;
+    J3DModel *pJVar3;
+    dBgW *pdVar4;
+    cBgD_t *pcVar5;
+    uint uVar6;
+    
+    pJVar1 = (J3DModelData *)dComIfG_getObjectRes("Mkanoke",0x4);
+    if (pJVar1 == NULL) {
+        return 0;
+    }
+
+    pJVar3 = mDoExt_J3DModel__create(pJVar1,0,0x11020203);
+    this->field_0x298 = pJVar3;
+    if (this->field_0x298 == NULL) {
+        return 0;
+    }
+
+    pdVar4 = new dBgW();
+    this->field_0x2A0 = pdVar4;
+    if (this->field_0x2A0 == NULL) {
+        return 0;
+    }
+
+    pcVar5 = (cBgD_t *)dComIfG_getObjectRes("Mkanoke",0x8);
+    uVar6 = this->field_0x2A0->Set(pcVar5,cBgW::MOVE_BG_e,&this->field_0x2A8);
+    if ((uVar6 & 0xff) == 1) {
+        return 0;
+    }
+    
+    pJVar1 = (J3DModelData *)dComIfG_getObjectRes("Mkanoke",0x5);
+    if (pJVar1 == NULL) {
+        return 0;
+    }
+
+    pJVar3 = mDoExt_J3DModel__create(pJVar1,0,0x11020203);
+    this->field_0x29C = pJVar3;
+    if (this->field_0x29C == NULL) {
+        return 0;
+    }
+
+    pdVar4 = new dBgW();
+    this->field_0x2A4 = pdVar4;
+    if (this->field_0x2A4 == NULL) {
+        return 0;
+    }
+
+    pcVar5 = (cBgD_t *)dComIfG_getObjectRes("Mkanoke",0x9);
+    uVar6 = this->field_0x2A4->Set(pcVar5,cBgW::MOVE_BG_e,&this->field_0x2D8);
+    if ((uVar6 & 0xff) == 1) {
+        return 0;
+    }
+
+    return 1;
 }
 
 /* 000008BC-00000B28       .text createInit__13daObjKanoke_cFv */

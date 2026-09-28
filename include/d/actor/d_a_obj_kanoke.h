@@ -9,8 +9,11 @@
 class daObjKanoke_c : public fopAc_ac_c {
 public:
     enum Prm_e {
-        PRM_TYPE_W = 0x0,
-        PRM_TYPE_S = 0x1,
+        PRM_SCH_W = 0x5,
+        PRM_SCH_S = 0x1,
+        
+        PRM_TYPE_W = 0x1,
+        PRM_TYPE_S = 0x0,
     };
     
     daObjKanoke_c();
@@ -29,7 +32,7 @@ public:
     void executeEffectTate();
     void executeWait();
     u8 getPrmType();
-    void getPrmSearch();
+    u8 getPrmSearch();
     void getPrmYure();
     void getPrmSwNo();
     void getPrmSwNo2();

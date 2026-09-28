@@ -189,12 +189,12 @@ void daObjKanoke_c::executeWait() {
 
 /* 00001B28-00001B54       .text getPrmType__13daObjKanoke_cFv */
 u8 daObjKanoke_c::getPrmType() {
-    return daObj::PrmAbstract<Prm_e>(this, PRM_TYPE_S, PRM_TYPE_W);
+    return daObj::PrmAbstract<Prm_e>(this, PRM_TYPE_W, PRM_TYPE_S);
 }
 
 /* 00001B54-00001B80       .text getPrmSearch__13daObjKanoke_cFv */
-void daObjKanoke_c::getPrmSearch() {
-    /* Nonmatching */
+u8 daObjKanoke_c::getPrmSearch() {
+    return daObj::PrmAbstract<Prm_e>(this, PRM_SCH_W, PRM_SCH_S);
 }
 
 /* 00001B80-00001BAC       .text getPrmYure__13daObjKanoke_cFv */

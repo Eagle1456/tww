@@ -198,8 +198,8 @@ u8 daObjKanoke_c::getPrmSearch() {
 }
 
 /* 00001B80-00001BAC       .text getPrmYure__13daObjKanoke_cFv */
-void daObjKanoke_c::getPrmYure() {
-    /* Nonmatching */
+u8 daObjKanoke_c::getPrmYure() {
+    return daObj::PrmAbstract<Prm_e>(this, PRM_YURE_W, PRM_YURE_S);
 }
 
 /* 00001BAC-00001BD8       .text getPrmSwNo__13daObjKanoke_cFv */

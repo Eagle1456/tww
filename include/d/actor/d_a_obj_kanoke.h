@@ -14,6 +14,9 @@ public:
         
         PRM_TYPE_W = 0x1,
         PRM_TYPE_S = 0x0,
+
+        PRM_YURE_W = 0x1,
+        PRM_YURE_S = 0x6,
     };
     
     daObjKanoke_c();
@@ -33,7 +36,7 @@ public:
     void executeWait();
     u8 getPrmType();
     u8 getPrmSearch();
-    void getPrmYure();
+    u8 getPrmYure();
     void getPrmSwNo();
     void getPrmSwNo2();
     void setMtx();

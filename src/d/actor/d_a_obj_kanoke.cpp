@@ -203,8 +203,8 @@ u8 daObjKanoke_c::getPrmYure() {
 }
 
 /* 00001BAC-00001BD8       .text getPrmSwNo__13daObjKanoke_cFv */
-void daObjKanoke_c::getPrmSwNo() {
-    /* Nonmatching */
+u8 daObjKanoke_c::getPrmSwNo() {
+    return daObj::PrmAbstract<Prm_e>(this, PRM_SW_W, PRM_SW_S);
 }
 
 /* 00001BD8-00001C04       .text getPrmSwNo2__13daObjKanoke_cFv */

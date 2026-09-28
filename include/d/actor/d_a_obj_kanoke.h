@@ -19,7 +19,10 @@ public:
         PRM_YURE_S = 0x6,
 
         PRM_SW_W = 0x8,
-        PRM_SW_S = 0x8
+        PRM_SW_S = 0x8,
+
+        PRM_SW2_W = 0x8,
+        PRM_SW2_S = 0x10,
     };
     
     daObjKanoke_c();
@@ -41,7 +44,7 @@ public:
     u8 getPrmSearch();
     u8 getPrmYure();
     u8 getPrmSwNo();
-    void getPrmSwNo2();
+    u8 getPrmSwNo2();
     void setMtx();
     void setMtxHontai();
     void setMtxHuta(cXyz*);

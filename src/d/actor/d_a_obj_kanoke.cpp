@@ -6,8 +6,8 @@
 #include "d/dolzel_rel.h" // IWYU pragma: keep
 #include "d/actor/d_a_obj_kanoke.h"
 #include "d/d_cc_d.h"
-#include "m_Do/m_Do_mtx.h"
 #include "f_op/f_op_actor.h"
+#include "d/d_com_inf_game.h"
 
 static dCcD_SrcCps l_cps_src_body = {
     // dCcD_SrcGObjInf
@@ -84,8 +84,23 @@ static BOOL CheckCreateHeap(fopAc_ac_c*) {
 
 /* 00000664-00000700       .text _create__13daObjKanoke_cFv */
 cPhs_State daObjKanoke_c::_create() {
-    /* Nonmatching */
-    return cPhs_COMPLEATE_e;
+    cPhs_State PVar1;
+    bool bVar2;
+
+    fopAcM_ct(this, daObjKanoke_c);
+    PVar1 = dComIfG_resLoad(&this->field_0x290,"Mkanoke");
+    if (PVar1 == cPhs_COMPLEATE_e) {
+        bVar2 = fopAcM_entrySolidHeap(this, CheckCreateHeap, 0x2400);
+        if (bVar2) {
+            PVar1 = createInit();
+        }
+        else {
+            this->field_0x2A4 =  NULL;
+            this->field_0x2A0 =  NULL;
+            PVar1 = cPhs_ERROR_e;
+        }
+    }
+    return PVar1;
 }
 
 /* 00000700-000008BC       .text createHeap__13daObjKanoke_cFv */
@@ -94,8 +109,9 @@ void daObjKanoke_c::createHeap() {
 }
 
 /* 000008BC-00000B28       .text createInit__13daObjKanoke_cFv */
-void daObjKanoke_c::createInit() {
+cPhs_State daObjKanoke_c::createInit() {
     /* Nonmatching */
+    return cPhs_COMPLEATE_e;
 }
 
 /* 00000B28-00000C0C       .text _delete__13daObjKanoke_cFv */

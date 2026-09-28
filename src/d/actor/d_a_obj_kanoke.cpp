@@ -214,7 +214,17 @@ u8 daObjKanoke_c::getPrmSwNo2() {
 
 /* 00001C04-00001C9C       .text setMtx__13daObjKanoke_cFv */
 void daObjKanoke_c::setMtx() {
-    /* Nonmatching */
+    if ((this->field_0x88F & 1) == 0) {
+        setMtxHontai();
+        this->field_0x298->setBaseTRMtx(mDoMtx_stack_c::now);
+        PSMTXCopy(mDoMtx_stack_c::now,this->field_0x2A8);
+    }
+    if ((this->field_0x88F & 2) == 0) {
+        setMtxHuta(&current.pos);
+        this->field_0x29C->setBaseTRMtx(mDoMtx_stack_c::now);
+        PSMTXCopy(mDoMtx_stack_c::now,this->field_0x2D8);
+    }
+    return;
 }
 
 /* 00001C9C-00001D38       .text setMtxHontai__13daObjKanoke_cFv */

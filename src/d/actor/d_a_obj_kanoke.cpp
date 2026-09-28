@@ -184,7 +184,7 @@ void daObjKanoke_c::executeEffectTate() {
 
 /* 00001B24-00001B28       .text executeWait__13daObjKanoke_cFv */
 void daObjKanoke_c::executeWait() {
-    /* Nonmatching */
+    return;
 }
 
 /* 00001B28-00001B54       .text getPrmType__13daObjKanoke_cFv */

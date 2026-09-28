@@ -189,7 +189,6 @@ void daObjKanoke_c::executeWait() {
 
 /* 00001B28-00001B54       .text getPrmType__13daObjKanoke_cFv */
 u8 daObjKanoke_c::getPrmType() {
-    /* Nonmatching */
     return daObj::PrmAbstract<Prm_e>(this, PRM_TYPE_S, PRM_TYPE_W);
 }
 

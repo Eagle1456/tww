@@ -11,6 +11,18 @@
 #include "d/d_com_inf_game.h"
 
 
+typedef void(daObjKanoke_c::*ProcFunc_t)();
+static const ProcFunc_t moveProc[] = {
+    &daObjKanoke_c::executeNormal,
+    &daObjKanoke_c::executeYureYoko,
+    &daObjKanoke_c::executeOpenYoko,
+    &daObjKanoke_c::executeEffectYoko,
+    &daObjKanoke_c::executeYureTate,
+    &daObjKanoke_c::executeOpenTate,
+    &daObjKanoke_c::executeEffectTate,
+    &daObjKanoke_c::executeWait
+};
+
 static dCcD_SrcCps l_cps_src_body = {
     // dCcD_SrcGObjInf
     {
@@ -202,12 +214,14 @@ BOOL daObjKanoke_c::_execute() {
     cXyz local_28;
     cXyz local_1c;
     
+
     local_28.x = 0.0;
     local_28.y = 0.0;
-    local_28.z = 100.0;
+    local_28.z = -100.0;
     local_1c.x = 0.0;
     local_1c.y = 0.0;
-    local_1c.z = -100.0;
+    local_1c.z = 100.0;
+
     
     mDoMtx_YrotS(mDoMtx_stack_c::now,shape_angle.y);
     mDoMtx_XrotM(mDoMtx_stack_c::now,shape_angle.x);
@@ -216,7 +230,7 @@ BOOL daObjKanoke_c::_execute() {
     PSVECAdd(&local_28,&current.pos,&local_28);
     PSVECAdd(&local_1c,&current.pos,&local_1c);
     field_0x344.SetStartEnd((const cXyz&)local_28,(const cXyz&)local_1c);
-    field_0x344.SetR(140.000000);
+    field_0x344.SetR(140.0);
 
     dComIfG_Ccsp()->Set((cCcD_Obj *)&this->field_0x344);
     (this->*moveProc[this->field_0x88B])();

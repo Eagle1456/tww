@@ -25,10 +25,6 @@ public:
         PRM_SW2_W = 0x8,
         PRM_SW2_S = 0x10,
     };
-
-    typedef void (daObjKanoke_c::*moveFunc)(); 
-
-    static moveFunc moveProc[];
     
     daObjKanoke_c();
     cPhs_State _create();

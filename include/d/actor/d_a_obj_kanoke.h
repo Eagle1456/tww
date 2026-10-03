@@ -8,6 +8,7 @@
 
 class daObjKanoke_c : public fopAc_ac_c {
 public:
+
     enum Prm_e {
         PRM_SCH_W = 0x5,
         PRM_SCH_S = 0x1,
@@ -24,6 +25,10 @@ public:
         PRM_SW2_W = 0x8,
         PRM_SW2_S = 0x10,
     };
+
+    typedef void (daObjKanoke_c::*moveFunc)(); 
+
+    static moveFunc moveProc[];
     
     daObjKanoke_c();
     cPhs_State _create();
@@ -48,6 +53,7 @@ public:
     void setMtx();
     void setMtxHontai();
     void setMtxHuta(cXyz*);
+
 
 public:
     /* 0x290 */ request_of_phase_process_class field_0x290;
@@ -82,6 +88,8 @@ public:
     /* 0x88D */ u8 field_0x88D;
     /* 0x88E */ u8 field_0x88E;
     /* 0x88F */ u8 field_0x88F;
+
+
 };  // Size: 0x890
 
 #endif /* D_A_OBJ_KANOKE_H */

@@ -10,6 +10,7 @@
 #include "f_op/f_op_actor.h"
 #include "d/d_com_inf_game.h"
 
+
 static dCcD_SrcCps l_cps_src_body = {
     // dCcD_SrcGObjInf
     {
@@ -196,6 +197,50 @@ BOOL daObjKanoke_c::_draw() {
 /* 00000CE0-00000E7C       .text _execute__13daObjKanoke_cFv */
 BOOL daObjKanoke_c::_execute() {
     /* Nonmatching */
+    bool bVar1;
+    uint uVar2;
+    cXyz local_28;
+    cXyz local_1c;
+    
+    local_28.x = 0.0;
+    local_28.y = 0.0;
+    local_28.z = 100.0;
+    local_1c.x = 0.0;
+    local_1c.y = 0.0;
+    local_1c.z = -100.0;
+    
+    mDoMtx_YrotS(mDoMtx_stack_c::now,shape_angle.y);
+    mDoMtx_XrotM(mDoMtx_stack_c::now,shape_angle.x);
+    PSMTXMultVec(mDoMtx_stack_c::now,&local_28,&local_28);
+    PSMTXMultVec(mDoMtx_stack_c::now,&local_1c,&local_1c);
+    PSVECAdd(&local_28,&current.pos,&local_28);
+    PSVECAdd(&local_1c,&current.pos,&local_1c);
+    field_0x344.SetStartEnd((const cXyz&)local_28,(const cXyz&)local_1c);
+    field_0x344.SetR(140.000000);
+
+    dComIfG_Ccsp()->Set((cCcD_Obj *)&this->field_0x344);
+    (this->*moveProc[this->field_0x88B])();
+    setMtx();
+    uVar2 = this->field_0x2A0->GetId();
+    if (((int)uVar2 >= 0) && ((int)uVar2 < 0x100)) {
+        bVar1 = true;
+    }
+    else {
+        bVar1 = false;
+    }
+    if (bVar1) {
+        this->field_0x2A0->Move();
+    }
+    uVar2 = field_0x2A4->GetId();
+    if (((int)uVar2 >= 0) && ((int)uVar2 < 0x100)) {
+        bVar1 = true;
+    }
+    else {
+        bVar1 = false;
+    }
+    if (bVar1) {
+        this->field_0x2A4->Move();
+    }
     return true;
 }
 
